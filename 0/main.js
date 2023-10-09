@@ -67,7 +67,7 @@ class ShaderArt {
       this.animate();
     });
     //console.log(dt);
-    this.material_.uniforms.elapsedTime.value = this.clock_.getElapsedTime();
+    this.material_.uniforms.time.value = this.clock_.getElapsedTime();
   }
 }
 
