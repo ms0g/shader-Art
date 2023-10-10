@@ -35,7 +35,7 @@ class ShaderArt {
 
     const material = new THREE.ShaderMaterial({
       uniforms: {
-        diffuse1: { value: tex },
+        texture1: { value: tex },
         time: { value: 0.0 },
       },
       vertexShader: await vs.text(),

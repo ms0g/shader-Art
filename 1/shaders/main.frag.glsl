@@ -1,6 +1,6 @@
 varying vec2 vUvs;
 
-uniform sampler2D diffuse1;
+uniform sampler2D texture1;
 uniform float time;
 
 float inverseLerp(float v, float minValue, float maxValue) {
@@ -18,7 +18,7 @@ void main() {
   float t1 = remap(sin(vUvs.y * 400.0 + time * 10.0), -1.0, 1.0, 0.9, 1.0);
   float t2 = remap(sin(vUvs.y * 50.0 - time * 2.0), -1.0, 1.0, 0.9, 1.0);
 
-  colour = texture2D(diffuse1, vUvs).xyz * t1 * t2;
+  colour = texture2D(texture1, vUvs).xyz * t1 * t2;
 
   gl_FragColor = vec4(colour, 1.0);
 }
