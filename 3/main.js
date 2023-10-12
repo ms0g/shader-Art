@@ -32,6 +32,10 @@ class ShaderArt {
 
     const material = new THREE.ShaderMaterial({
       uniforms: {
+        resolution: {
+          value: new THREE.Vector2(
+            window.innerWidth, window.innerHeight
+        )},
         time: { value: 0.0 }
       },
       vertexShader: await vs.text(),
