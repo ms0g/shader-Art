@@ -11,7 +11,7 @@ vec3 palette(float t) {
   return a + b * cos(6.28 * (c * t + d));
 }
 
-float random (vec2 st) {
+float rand (vec2 st) {
     return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
 }
 
@@ -19,7 +19,7 @@ void main() {
   vec3 colour = vec3(0.0);
   vec2 uv = vUv;
 
-  float seed = random(uv + time);
+  float seed = rand(uv + time);
 
   vec3 c = palette(seed);
 
