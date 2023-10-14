@@ -1,4 +1,4 @@
-varying vec2 vUvs;
+varying vec2 vUv;
 
 uniform sampler2D texture1;
 uniform float time;
@@ -15,10 +15,10 @@ float remap(float inMin, float inMax, float outMin, float outMax, float v) {
 void main() {
   vec3 colour = vec3(0.0);
 
-  float t1 = remap(-1.0, 1.0, 0.9, 1.0, sin(vUvs.y * 400.0 + time * 10.0));
-  float t2 = remap(-1.0, 1.0, 0.9, 1.0, sin(vUvs.y * 50.0 - time * 2.0));
+  float t1 = remap(-1.0, 1.0, 0.9, 1.0, sin(vUv.y * 400.0 + time * 10.0));
+  float t2 = remap(-1.0, 1.0, 0.9, 1.0, sin(vUv.y * 50.0 - time * 2.0));
 
-  colour = texture2D(texture1, vUvs).xyz * t1 * t2;
+  colour = texture2D(texture1, vUv).xyz * t1 * t2;
 
   gl_FragColor = vec4(colour, 1.0);
 }

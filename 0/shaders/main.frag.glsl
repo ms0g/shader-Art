@@ -1,5 +1,5 @@
 
-varying vec2 vUvs;
+varying vec2 vUv;
 
 uniform vec2 resolution;
 uniform float aspectRatio;
@@ -15,7 +15,7 @@ vec3 palette(float t) {
 }
 
 void main() {
-  vec2 uv = vUvs - 0.5;
+  vec2 uv = vUv - 0.5;
   uv.x *= aspectRatio;
   
   vec2 uv0 = uv;
