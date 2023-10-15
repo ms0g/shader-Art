@@ -57,12 +57,10 @@ class ShaderArt {
 
   animate() {
     requestAnimationFrame((t) => {
+      this.material_.uniforms.time.value = this.clock_.getElapsedTime();
       this.renderer.render(this.scene_, this.camera_);
       this.animate();
-    
     });
-    this.material_.uniforms.time.value = this.clock_.getElapsedTime();
-
   }
 }
 
