@@ -16,13 +16,13 @@ void main() {
   uv.x *= aspectRatio;
 
   // horizontal
-  vec2 h0 = step(vec2(0.01*1.7*1.3), abs(0.15-uv));
+  vec2 h0 = step(vec2(0.01*1.7*1.3), abs(uv-0.15));
   if (uv.x < 0.9) {
     h0 = vec2(1.0);
   }
 
-  vec2 h1 = step(vec2(0.01*1.7), abs(0.3-uv));
-  vec2 h2 = step(vec2(0.01*1.7*2.0), abs(0.7-uv));
+  vec2 h1 = step(vec2(0.01*1.7), abs(uv-0.3));
+  vec2 h2 = step(vec2(0.01*1.7*2.0), abs(uv-0.7));
   if (uv.x > 0.22) {
     h2 = vec2(1.0);
   }
@@ -30,8 +30,8 @@ void main() {
   float pct = h0.y * h1.y * h2.y;
 
   // vertical
-  vec2 v1 = step(vec2(0.01*1.7), abs(0.22-uv));
-  vec2 v2 = step(vec2(0.01*1.7), abs(0.9-uv));
+  vec2 v1 = step(vec2(0.01*1.7), abs(uv-0.22));
+  vec2 v2 = step(vec2(0.01*1.7), abs(uv-0.9));
   if (uv.y > 0.3) {
     v2 = vec2(1.0);
   }
