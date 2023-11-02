@@ -5,9 +5,11 @@ uniform vec2 resolution;
 uniform float aspectRatio;
 uniform float time;
 
-vec3 red = vec3(0.8627, 0.1451, 0.1255);
-vec3 yellow = vec3(0.9333, 0.8588, 0.3961);
-vec3 blue = vec3(0.0157, 0.3647, 0.6235);
+const vec3 red = vec3(0.8627, 0.1451, 0.1255);
+const vec3 yellow = vec3(0.9333, 0.8588, 0.3961);
+const vec3 blue = vec3(0.0157, 0.3647, 0.6235);
+
+#define THICKNESS 0.01
 
 
 void main() {
@@ -16,13 +18,13 @@ void main() {
   uv.x *= aspectRatio;
 
   // horizontal
-  vec2 h0 = step(vec2(0.01*1.7*1.3), abs(uv-0.15));
+  vec2 h0 = step(vec2(THICKNESS*1.7*1.3), abs(uv-0.15));
   if (uv.x < 0.9) {
     h0 = vec2(1.0);
   }
 
-  vec2 h1 = step(vec2(0.01*1.7), abs(uv-0.3));
-  vec2 h2 = step(vec2(0.01*1.7*2.0), abs(uv-0.7));
+  vec2 h1 = step(vec2(THICKNESS*1.7), abs(uv-0.3));
+  vec2 h2 = step(vec2(THICKNESS*1.7*2.0), abs(uv-0.7));
   if (uv.x > 0.22) {
     h2 = vec2(1.0);
   }
@@ -30,8 +32,8 @@ void main() {
   float pct = h0.y * h1.y * h2.y;
 
   // vertical
-  vec2 v1 = step(vec2(0.01*1.7), abs(uv-0.22));
-  vec2 v2 = step(vec2(0.01*1.7), abs(uv-0.9));
+  vec2 v1 = step(vec2(THICKNESS*1.7), abs(uv-0.22));
+  vec2 v2 = step(vec2(THICKNESS*1.7), abs(uv-0.9));
   if (uv.y > 0.3) {
     v2 = vec2(1.0);
   }
